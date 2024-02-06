@@ -1,0 +1,18 @@
+<div class="search-input">
+  <input
+    [(ngModel)]="searchTerm"
+    type="text"
+    placeholder="Enter location"
+    (keydown.enter)="search()"
+  />
+  <button [disabled]="searchTerm.length === 0" (click)="search()">
+    Search
+  </button>
+</div>
+<div
+  style="height: 100vh"
+  leaflet
+  [leafletOptions]="options"
+  [leafletLayersControl]="{ baseLayers: baseLayers, overlays: overlays }"
+  (leafletMapReady)="map = $event"
+></div>
